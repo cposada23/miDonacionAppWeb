@@ -1,0 +1,16 @@
+<h1>
+  Categoria: {{categoria?.nombre}}
+</h1>
+
+<section class="row text-center">
+  <a type="button" class="btn btn-info" routerLink="/nuevasubcategoria">Agregar Subcategoria</a>
+</section>
+<h2>Subcategorias de {{categoria?.nombre}}</h2>
+
+<section class="row text-center placeholders" style="padding-top: 15px; ">
+  <div class="col-6 col-sm-3 placeholder" *ngFor="let subcategoria of (subcategoriasBienes$ | async)" >
+    <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+    <h4>{{subcategoria?.nombre}}</h4>
+    <div class="text-muted">Something else</div>
+  </div>
+</section>

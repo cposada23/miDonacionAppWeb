@@ -1,0 +1,9 @@
+<form class="form-signin" novalidate [formGroup]="form">
+  <h2 class="form-signin-heading">Nueva categoria para bienes</h2>
+  <label for="inputName" class="sr-only">Nombre categoria </label>
+  <input type="text" id="inputName" class="form-control" placeholder="Nombre Categoria " formControlName="nombre" required autofocus>
+  <label for="inputDecripcion" class="sr-only">Descripción</label>
+  <input type="text" id="inputDecripcion" class="form-control" placeholder="Descripcion"  formControlName="descripcion" required>
+  
+  <button class="btn btn-lg btn-primary btn-block" (click)="guardar()">Guardar</button>
+</form>

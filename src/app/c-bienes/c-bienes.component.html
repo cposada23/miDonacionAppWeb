@@ -1,0 +1,12 @@
+<h1>Categorias Bienes</h1>
+
+<section class="row text-center">
+  <a type="button" class="btn btn-info" routerLink="/adminHome/agregarCatBienes">Agregar Categoria</a>
+</section>
+<section class="row text-center placeholders" style="padding-top: 15px; ">
+  <div class="col-6 col-sm-3 placeholder" *ngFor="let categoria of (categoriasBienes$ | async)" (click)="irDetalle(categoria)">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+    <h4>{{categoria?.nombre}}</h4>
+    <div class="text-muted">Something else</div>
+  </div>
+</section>
