@@ -19,10 +19,8 @@ export class NuevaSubCatBienesComponent implements OnInit {
       console.log(nombre);
       return this.categoriaService.getCategoriaBienesPorNombre(nombre);
     }).subscribe(data=>{
-      
       this.categoria = data;
       console.log(this.categoria);
     });
   }
-
 }

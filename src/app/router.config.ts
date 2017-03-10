@@ -35,14 +35,11 @@ export const routerConfig: Route[] =[
                 path:'agregarCatServicios',
                 component:NuevaCatServiciosComponent
             },{
-                path:'detalleCategoriaBienes/:nombre',
-                component:DetalleCatBienesComponent,
-                /*resolve:{
-                    categoria: CategoriaResolver
-                }*/
-            },{
                 path:'nuevasubcategoria/:nombre',
                 component: NuevaSubCatBienesComponent
+            },{
+                path:'detalleCategoriaBienes/:nombre',
+                component:DetalleCatBienesComponent
             },{
                 path:'',
                 redirectTo:'cBienes',
