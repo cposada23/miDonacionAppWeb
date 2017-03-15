@@ -10,7 +10,7 @@ import { Observable  } from 'rxjs';
 })
 export class DetalleCatBienesComponent implements OnInit {
   categoria: CategoriaBienes;
-  subcategorias$:Observable<any[]>;
+  subcategoriasBienes$:Observable<any[]>;
   constructor(private route:ActivatedRoute, private categoriaService: CategoriaService ) {
 
     this.route.params.switchMap(params => {
@@ -18,17 +18,13 @@ export class DetalleCatBienesComponent implements OnInit {
       console.log(nombre);
       return this.categoriaService.getCategoriaBienesPorNombre(nombre);
     }).subscribe(data=>{
-      
       this.categoria = data;
-      console.log(this.categoria);
+      console.log("Ver subcategorias de: ",this.categoria);
+      this.subcategoriasBienes$ = this.categoriaService.getSubCategoriasPorCategoria(this.categoria.$key);
+      /*this.subcategoriasBienes$.subscribe(subcat =>{
+        console.log("subcategorias", subcat);
+      });*/
     });
-    /*var nombre = this.activatedRouteSnapshot.params['nombre'];
-    console.log(nombre);*/
-    /*route.data.do(data=>{console.log("data: ", data)})
-              .subscribe(data => {
-                this.categoria = data['categoria'];
-                console.log(this.categoria);
-              });*/
   }
 
   ngOnInit() {
