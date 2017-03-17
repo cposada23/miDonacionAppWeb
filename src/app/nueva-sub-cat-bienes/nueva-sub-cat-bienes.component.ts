@@ -17,7 +17,7 @@ export class NuevaSubCatBienesComponent implements OnInit {
   constructor( public formBuilder: FormBuilder,private route:ActivatedRoute, private categoriaService: CategoriaService ) { 
     this.form = this.formBuilder.group({
       nombre:['', Validators.required],
-      descripcion: ['', Validators.required]
+      //descripcion: ['', Validators.required]
     });
   }
 

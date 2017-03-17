@@ -39,7 +39,7 @@ export class CategoriaService {
     
     const subCategoriaToSave = {
       nombre: subcategoria.nombre,
-      descripcion: subcategoria.descripcion,
+      //descripcion: subcategoria.descripcion,
       categoriaKey: subcategoria.categoria.$key,
       categoria: subcategoria.categoria.nombre
     }
@@ -51,8 +51,6 @@ export class CategoriaService {
     return this.firebaseUpdate(dataToSave);
   }
 
-
- 
 
   /**
    * Obtiene las llaves de las subcategorias que pertenecen a una categoria especifica
