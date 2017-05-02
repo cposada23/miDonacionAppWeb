@@ -19,23 +19,23 @@ export const routerConfig: Route[] =[
         component: LoginComponent
     },
     {
-        path:'adminHome',
+        path: 'adminHome',
         component: AdminHomeComponent, 
         children:[
             {
-                path:'cBienes',
+                path: 'cBienes',
                 component:CBienesComponent
             },{
-                path:'cServicios',
-                component:CServiciosComponent
+                path: 'cServicios',
+                component: CServiciosComponent
+            }, {
+                path: 'agregarCatBienes',
+                component: NuevaCatBienesComponent
+            }, {
+                path: 'agregarCatServicios',
+                component: NuevaCatServiciosComponent
             },{
-                path:'agregarCatBienes',
-                component:NuevaCatBienesComponent
-            },{
-                path:'agregarCatServicios',
-                component:NuevaCatServiciosComponent
-            },{
-                path:'nuevasubcategoria/:nombre',
+                path: 'nuevasubcategoria/:nombre',
                 component: NuevaSubCatBienesComponent
             },{
                 path:'detalleCategoriaBienes/:nombre',

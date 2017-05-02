@@ -2,6 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { Observable, Subject } from 'rxjs/Rx';
 import { AngularFireDatabase, FirebaseRef, AngularFire } from 'angularfire2';
 import { CategoriaBienes } from '../models/categoriasBienes';
+import { CategoriaServicio } from '../models/categoriaServicio';
+
 @Injectable()
 export class CategoriaService {
   sdkDb: any;
@@ -11,6 +13,10 @@ export class CategoriaService {
 
   getCategoriasBienes(){
     return this.db.list('categoriasBienes').map(CategoriaBienes.fromjsonArray)
+  }
+
+  getCategoriasServicios(){
+    return this.db.list('categoriasServicios').map(CategoriaServicio.fromjsonArray)
   }
 
   getCategoriaBienesPorNombre(nombre:string):Observable<CategoriaBienes>{
@@ -23,7 +29,17 @@ export class CategoriaService {
     .map(results => CategoriaBienes.fromJson(results[0]));
   }
 
-  nuevaCategoriaBienes(nombre:string, descripcion:string){
+  nuevaCategoriaServicios(nombre: string, descripcion: string){
+   const categoria = {
+      nombre: nombre,
+      descripcion: descripcion
+    };
+    const categoriaKey = this.sdkDb.child('categoriasServicios').push().key;
+    let dataToSave = {};
+    dataToSave['categoriasServicios/'+ categoriaKey] = categoria;
+    return this.firebaseUpdate(dataToSave);
+  }
+  nuevaCategoriaBienes(nombre: string, descripcion: string) {
    const categoria = {
       nombre: nombre,
       descripcion: descripcion
